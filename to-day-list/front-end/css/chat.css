@@ -1,0 +1,71 @@
+.chat {
+    grid-area: chat;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    background-color: hsla(240, 56%, 9%, 0.796);
+}
+
+#chatForm {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    outline: none;
+    color: var(--font-color);
+}
+
+#promptInput {
+    flex: 1;
+    padding: 8px;
+    height: 50px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: inherit;
+    outline: none;
+    font-size: 2rem;
+    background: var(--input-background);
+}
+
+.chat__button {
+    padding: 12.9px 18px;
+    margin-bottom: .5px;
+    border: none;
+    color: inherit;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 2.2em;
+}
+
+#responseContainer {
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 1.3rem;
+    color: inherit;
+    font-size: 1.8rem;
+}
+
+.chat__helper {
+    display: block;
+    text-align: center;
+}
+
+.chat__helper img {
+    width: 40px;
+    padding: 5px;
+    background: var(--outer-gradient);
+    border-radius: 5px;
+}
+
+#responseContainer div {
+    margin-bottom: 10px;
+    border: 2px solid var(--border-color);
+    background: var(--transparent-purple);
+    border-radius: 5px;
+    padding: .9rem;
+    color: var(--font-color);
+}
+
+#responseContainer strong {
+    color: var(--secondary-purple);
+}
