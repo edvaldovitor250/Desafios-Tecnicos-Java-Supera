@@ -85,7 +85,7 @@ body::before {
 
 .brand_logo img,
 .brand_logo-login img {
-    width: 100%;
+  width: 100%;
 }
 
 .form {
@@ -110,11 +110,10 @@ body::before {
 .form__field label {
   text-align: left;
   font-size: 1.4rem;
-  border: 2px solid red;
   border: unset;
   width: fit-content;
   border-radius: 10px;
-  padding: .3rem .5rem;
+  padding: 0.3rem 0.5rem;
   font-weight: bold;
   position: absolute;
   top: 4px;
@@ -160,7 +159,7 @@ input + .error {
   font-size: 14px;
   color: red;
   text-align: left;
-  margin-top: .1rem;
+  margin-top: 0.1rem;
 }
 
 .login button {
@@ -178,4 +177,65 @@ input + .error {
 
 .text--center {
   text-align: center;
+}
+
+@media (max-width: 768px) {
+  .brand_logo_container,
+  .brand_logo_container-login {
+    width: 70px;
+  }
+
+  .form {
+    padding: 20px 20px 15px 20px;
+  }
+
+  .form__field {
+    width: 100%;
+    margin: 18px 10px;
+  }
+
+  .form__field label {
+    font-size: 1.2rem;
+  }
+
+  .form__field input {
+    font-size: 1.2rem;
+    padding: 0.8rem;
+  }
+
+  .login button {
+    font-size: 1.5rem;
+    width: 80px;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand_logo_container,
+  .brand_logo_container-login {
+    width: 60px;
+  }
+
+  .form {
+    padding: 15px 15px 10px 15px;
+  }
+
+  .form__field {
+    margin: 16px 8px;
+  }
+
+  .form__field label {
+    font-size: 1rem;
+  }
+
+  .form__field input {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .login button {
+    font-size: 1.3rem;
+    width: 70px;
+    padding: 0.7rem;
+  }
 }

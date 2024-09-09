@@ -22,12 +22,13 @@ import br.com.edvaldo.todolist.domain.repository.ITaskRepository;
 import br.com.edvaldo.todolist.infra.exception.TaskNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
 
-    @Autowired
     private ITaskRepository taskRepository;
 
     @PostMapping("/create")

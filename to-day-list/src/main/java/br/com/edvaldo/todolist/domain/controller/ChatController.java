@@ -1,6 +1,5 @@
 package br.com.edvaldo.todolist.domain.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,15 +14,16 @@ import br.com.edvaldo.todolist.domain.dto.chat.ChatRequestData;
 import br.com.edvaldo.todolist.domain.dto.chat.ChatResponseData;
 import br.com.edvaldo.todolist.domain.model.MessageModel;
 import br.com.edvaldo.todolist.infra.exception.InvalidChatMessageException;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping
+@RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
         RequestMethod.DELETE, RequestMethod.OPTIONS })
 public class ChatController {
 
-    @Autowired
-    private RestTemplate restTemplate;
+    private final RestTemplate restTemplate;
 
     @Value("${openai.model}")
     private String model;

@@ -30,7 +30,6 @@ input[type="checkbox"]:before {
 input[type="checkbox"]:checked:before {
     content: "\f046";
     color: rgb(85, 212, 85);
-
 }
 
 input[type="checkbox"] {
@@ -63,13 +62,13 @@ input[type="checkbox"] {
 .taskItem:hover {
     filter: brightness(1.1);
     transform: scale(1.01);
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .taskDetails {
     display: flex;
     flex-direction: column;
-    align-items: self-start;
+    align-items: flex-start;
 }
 
 .taskDateContainer {
@@ -81,7 +80,7 @@ input[type="checkbox"] {
     color: var(--font-color);
     background: linear-gradient(to top, rgb(12, 69, 162) 41%, rgb(104, 170, 245) 100%);
     background: #7e64ff5b;
-    padding: .7rem .5rem .7rem 3.5rem;
+    padding: 0.7rem 0.5rem 0.7rem 3.5rem;
     border-radius: 8px;
     font-size: 2rem;
 }
@@ -107,46 +106,28 @@ input[type="checkbox"] {
     font-size: 1.7rem;
 }
 
-.taskPriorityLow {
-    position: relative;
-    padding-left: 20px;
-    border-radius: 5px;
-}
-
-.taskPriorityLow::before {
-    content: "";
-    position: absolute;
-    top: 5.5px;
-    left: 7px;
-    width: 8px;
-    height: 85%;
-    background: rgb(85, 212, 85);
-    border-radius: 5px;
-}
-
-.taskPriorityMedium {
-    position: relative;
-    padding-left: 20px;
-    border-radius: 5px;
-}
-
-.taskPriorityMedium::before {
-    content: "";
-    position: absolute;
-    top: 5.5px;
-    left: 7px;
-    width: 8px;
-    height: 85%;
-    background: rgb(219, 219, 111);
-    border-radius: 5px;
-}
-
+.taskPriorityLow,
+.taskPriorityMedium,
 .taskPriorityHigh {
     position: relative;
     padding-left: 20px;
     border-radius: 5px;
 }
 
+.taskPriorityLow::before {
+    background: rgb(85, 212, 85);
+}
+
+.taskPriorityMedium::before {
+    background: rgb(219, 219, 111);
+}
+
+.taskPriorityHigh::before {
+    background: rgb(246, 98, 98);
+}
+
+.taskPriorityLow::before,
+.taskPriorityMedium::before,
 .taskPriorityHigh::before {
     content: "";
     position: absolute;
@@ -154,6 +135,85 @@ input[type="checkbox"] {
     left: 7px;
     width: 8px;
     height: 85%;
-    background: rgb(246, 98, 98);
     border-radius: 5px;
+}
+
+@media (max-width: 1024px) {
+    .taskItem {
+        margin: 1.5rem 1.2rem;
+        height: auto;
+        padding: 10px;
+    }
+
+    .taskTitle {
+        font-size: 2rem;
+    }
+
+    .taskDescription {
+        font-size: 1.6rem;
+    }
+
+    .taskDateContainer {
+        right: 60px;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .taskItem {
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 1.2rem 1rem;
+        padding: 15px;
+    }
+
+    .taskTitle {
+        font-size: 1.8rem;
+    }
+
+    .taskDescription {
+        font-size: 1.5rem;
+    }
+
+    .taskDateContainer {
+        position: static;
+        margin-top: 10px;
+        font-size: 1.6rem;
+        padding: 0.7rem 1.5rem;
+    }
+
+    .time-icon {
+        left: 10px;
+        top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .taskItem {
+        margin: 1rem 0.8rem;
+        padding: 10px;
+    }
+
+    .taskTitle {
+        font-size: 1.6rem;
+    }
+
+    .taskDescription {
+        font-size: 1.4rem;
+    }
+
+    .taskDateContainer {
+        font-size: 1.4rem;
+        padding: 0.6rem 1.3rem;
+    }
+
+    .taskCheckbox {
+        margin-right: 10px;
+        transform: scale(1.3);
+    }
+
+    .time-icon {
+        left: 8px;
+        top: 5px;
+    }
 }

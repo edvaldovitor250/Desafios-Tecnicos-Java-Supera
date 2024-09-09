@@ -18,18 +18,17 @@ import br.com.edvaldo.todolist.domain.repository.IUserRepository;
 import br.com.edvaldo.todolist.infra.service.TokenService;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 
 @RestController
+@AllArgsConstructor
 @RequestMapping("/auth")
 public class AuthController {
 
-    @Autowired
     private IUserRepository userRepository;
 
-    @Autowired
     private TokenService tokenService;
 
-    @Autowired
     private PasswordEncoder passwordEncoder;
 
     @Transactional

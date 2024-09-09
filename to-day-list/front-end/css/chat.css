@@ -69,3 +69,52 @@
 #responseContainer strong {
     color: var(--secondary-purple);
 }
+
+@media (max-width: 768px) {
+    #chatForm {
+        flex-direction: column;
+        padding: 5px;
+    }
+
+    #promptInput {
+        width: 100%;
+        height: 45px;
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+
+    .chat__button {
+        width: 100%;
+        font-size: 2rem;
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    #responseContainer {
+        font-size: 1.5rem;
+    }
+
+    .chat__helper img {
+        width: 35px;
+    }
+}
+
+@media (max-width: 480px) {
+    #promptInput {
+        height: 40px;
+        font-size: 1.4rem;
+    }
+
+    .chat__button {
+        font-size: 1.8rem;
+    }
+
+    #responseContainer {
+        font-size: 1.4rem;
+    }
+
+    .chat__helper img {
+        width: 30px;
+    }
+}

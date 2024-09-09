@@ -27,13 +27,13 @@
     margin: 0 auto;
     border-radius: 5px;
     border: 2px solid transparent;
-    transition: .5s;
+    transition: 0.5s;
     background: rgba(179, 132, 202, 0.211);
 }
 
 .create-task:hover {
     border: 2px solid var(--border-color);
-    transition: .5;
+    transition: 0.5s;
 }
 
 .create-task h2 {
@@ -46,7 +46,7 @@
 .create-task select {
     padding: 5px;
     border: 2px solid var(--primary-white);
-        margin: 5px;
+    margin: 5px;
     max-height: 33px;
     min-height: 33px;
     background: inherit;
@@ -57,8 +57,6 @@
 select {
     text-align: center;
     appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
     text-indent: 1px;
     text-overflow: '';
     width: 80px;
@@ -92,4 +90,85 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     padding: 10px 16px;
     cursor: pointer;
     font-size: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .header h1 {
+        font-size: 2.4rem;
+    }
+
+    .create-task {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .create-task h2 {
+        font-size: 1.1rem;
+    }
+
+    .create-task input[type="text"],
+    .create-task input[type="time"],
+    .create-task select {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .create-task button {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .create-task {
+        width: 90%;
+    }
+
+    .create-task h2 {
+        font-size: 1rem;
+    }
+
+    .create-task input[type="text"],
+    .create-task input[type="time"],
+    .create-task select {
+        width: 100%;
+        margin: 8px 0;
+        padding: 10px;
+    }
+
+    .create-task button {
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.8rem;
+    }
+
+    .create-task {
+        width: 95%;
+        padding: 10px;
+    }
+
+    .create-task h2 {
+        font-size: 0.9rem;
+    }
+
+    .create-task input[type="text"],
+    .create-task input[type="time"],
+    .create-task select {
+        width: 100%;
+        margin: 5px 0;
+        padding: 8px;
+    }
+
+    .create-task button {
+        font-size: 1.4rem;
+        padding: 8px 12px;
+    }
 }

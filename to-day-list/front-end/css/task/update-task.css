@@ -27,9 +27,8 @@
 }
 
 .flex-container div {
-    width: 30%; 
+    width: 30%;
 }
-
 
 .close {
     position: absolute;
@@ -81,4 +80,59 @@
     cursor: pointer;
     border-radius: 5px;
     margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+    .modal {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.7rem;
+    }
+
+    #editTaskForm input[type="text"],
+    #editTaskForm textarea,
+    #editTaskForm input[type="time"],
+    #editTaskForm select {
+        font-size: 1.4rem;
+        padding: 8px;
+    }
+
+    #editTaskForm button {
+        padding: 8px 15px;
+    }
+
+    .close {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    .modal-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .close {
+        font-size: 1.2rem;
+    }
+
+    #editTaskForm input[type="text"],
+    #editTaskForm textarea,
+    #editTaskForm input[type="time"],
+    #editTaskForm select {
+        font-size: 1.3rem;
+    }
+
+    #editTaskForm button {
+        width: 100%;
+        padding: 10px;
+    }
 }
