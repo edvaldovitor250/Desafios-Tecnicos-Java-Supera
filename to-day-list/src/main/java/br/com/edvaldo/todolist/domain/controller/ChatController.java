@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
@@ -14,7 +13,6 @@ import br.com.edvaldo.todolist.domain.dto.chat.ChatRequestData;
 import br.com.edvaldo.todolist.domain.dto.chat.ChatResponseData;
 import br.com.edvaldo.todolist.domain.model.MessageModel;
 import br.com.edvaldo.todolist.infra.exception.InvalidChatMessageException;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -33,13 +31,18 @@ public class ChatController {
 
     @PostMapping("/chat")
     public ResponseEntity<MessageModel> chat(@RequestBody String prompt) {
-        ChatRequestData requestDTO = new ChatRequestData(model, ChatRequestData.getPrompt(prompt));
-        ChatResponseData responseDTO = restTemplate.postForObject(apiUrl, requestDTO, ChatResponseData.class);
-        boolean invalid = requestDTO == null || responseDTO.getChoices() == null || responseDTO.getChoices().isEmpty();
-
-        if (invalid) {
-            throw new InvalidChatMessageException(new MessageModel("user", "erro na consulta"));
+        if (prompt == null || prompt.trim().isEmpty()) {
+            throw new InvalidChatMessageException("Prompt cannot be null or empty");
         }
-        return ResponseEntity.ok(responseDTO.getChoices().get(0).getMessage());
+
+        ChatRequestData requestDTO = new ChatRequestData(model, prompt);
+        ChatResponseData responseDTO = restTemplate.postForObject(apiUrl, requestDTO, ChatResponseData.class);
+
+        if (responseDTO == null || responseDTO.getChoices() == null || responseDTO.getChoices().isEmpty()) {
+            throw new InvalidChatMessageException("Invalid chat response from external service");
+        }
+
+        MessageModel message = responseDTO.getChoices().get(0).getMessage();
+        return ResponseEntity.ok(message);
     }
 }

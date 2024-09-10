@@ -19,4 +19,6 @@ public class ChatResponseData {
         private MessageModel message;
         private int index;
     }
+
+
 }
